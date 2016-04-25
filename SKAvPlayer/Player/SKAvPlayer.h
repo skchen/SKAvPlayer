@@ -8,6 +8,6 @@
 
 @import SKUtils;
 
-@interface SKAvPlayer : SKPlayer
+@interface SKAvPlayer : SKPlayer <NSString *>
 
 @end

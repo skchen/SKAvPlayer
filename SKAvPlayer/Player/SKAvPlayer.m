@@ -35,6 +35,8 @@ static const NSString *ItemStatusContext;
     
     if([source hasPrefix:@"/"]) {
         url = [NSURL fileURLWithPath:source];
+    } else if([source hasPrefix:@"http://"] || [source hasPrefix:@"https://"]) {
+        url = [NSURL URLWithString:source];
     }
     
     if(url) {
