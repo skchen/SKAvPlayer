@@ -376,6 +376,7 @@
 				82B901961CCDBA92008473EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82B901971CCDBA92008473EF /* Build configuration list for PBXNativeTarget "SKAvPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +385,7 @@
 				82B901991CCDBA92008473EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
