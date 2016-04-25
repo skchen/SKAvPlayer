@@ -38,8 +38,7 @@ xcuserdata
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
+Carthage/Checkouts
 Carthage/Build
 
 # fastlane
@@ -48,6 +47,12 @@ Carthage/Build
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://github.com/fastlane/fastlane/blob/master/docs/Gitignore.md
-
 fastlane/report.xml
 fastlane/screenshots
+
+# MacOS
+.DS_Store
+
+# to deploy
+Output/
+*.framework.zip
