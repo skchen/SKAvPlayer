@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82B901841CCDBA92008473EF /* SKAvPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901831CCDBA92008473EF /* SKAvPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B9018B1CCDBA92008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901801CCDBA92008473EF /* SKAvPlayer.framework */; };
 		82B901901CCDBA92008473EF /* SKAvPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9018F1CCDBA92008473EF /* SKAvPlayerTests.m */; };
+		82B901CC1CCDBCFB008473EF /* SKAvPlayerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901CB1CCDBCFB008473EF /* SKAvPlayerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901D31CCDBE77008473EF /* SKAvPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901D11CCDBE77008473EF /* SKAvPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901D41CCDBE77008473EF /* SKAvPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901D21CCDBE77008473EF /* SKAvPlayer.m */; };
+		82B901D61CCDBE9F008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901D51CCDBE9F008473EF /* SKUtils.framework */; };
+		82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901D71CCDBF6D008473EF /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +28,15 @@
 
 /* Begin PBXFileReference section */
 		82B901801CCDBA92008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKAvPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82B901831CCDBA92008473EF /* SKAvPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAvPlayer.h; sourceTree = "<group>"; };
 		82B901851CCDBA92008473EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B9018A1CCDBA92008473EF /* SKAvPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKAvPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B9018F1CCDBA92008473EF /* SKAvPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayerTests.m; sourceTree = "<group>"; };
 		82B901911CCDBA92008473EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B901CB1CCDBCFB008473EF /* SKAvPlayerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayerFramework.h; sourceTree = "<group>"; };
+		82B901D11CCDBE77008473EF /* SKAvPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayer.h; sourceTree = "<group>"; };
+		82B901D21CCDBE77008473EF /* SKAvPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayer.m; sourceTree = "<group>"; };
+		82B901D51CCDBE9F008473EF /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = "../../SKUtils/build/Debug-iphoneos/SKUtils.framework"; sourceTree = "<group>"; };
+		82B901D71CCDBF6D008473EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */,
+				82B901D61CCDBE9F008473EF /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +81,9 @@
 		82B901821CCDBA92008473EF /* SKAvPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				82B901831CCDBA92008473EF /* SKAvPlayer.h */,
+				82B901CA1CCDBC77008473EF /* Player */,
+				82B901D01CCDBD7A008473EF /* Framework */,
+				82B901CB1CCDBCFB008473EF /* SKAvPlayerFramework.h */,
 				82B901851CCDBA92008473EF /* Info.plist */,
 			);
 			path = SKAvPlayer;
@@ -86,6 +98,24 @@
 			path = SKAvPlayerTests;
 			sourceTree = "<group>";
 		};
+		82B901CA1CCDBC77008473EF /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				82B901D11CCDBE77008473EF /* SKAvPlayer.h */,
+				82B901D21CCDBE77008473EF /* SKAvPlayer.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		82B901D01CCDBD7A008473EF /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				82B901D51CCDBE9F008473EF /* SKUtils.framework */,
+				82B901D71CCDBF6D008473EF /* AVFoundation.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +123,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B901841CCDBA92008473EF /* SKAvPlayer.h in Headers */,
+				82B901CC1CCDBCFB008473EF /* SKAvPlayerFramework.h in Headers */,
+				82B901D31CCDBE77008473EF /* SKAvPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B901D41CCDBE77008473EF /* SKAvPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,9 +344,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SKAvPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKAvPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -328,9 +362,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SKAvPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKAvPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -13,6 +13,7 @@
 		82B901B11CCDBB18008473EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901AF1CCDBB18008473EF /* Main.storyboard */; };
 		82B901B31CCDBB18008473EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B21CCDBB18008473EF /* Assets.xcassets */; };
 		82B901B61CCDBB18008473EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B41CCDBB18008473EF /* LaunchScreen.storyboard */; };
+		82B901CE1CCDBD42008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		82B901B21CCDBB18008473EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B901B51CCDBB18008473EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B901B71CCDBB18008473EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKAvPlayer.framework; path = "../../../build/Debug-iphoneos/SKAvPlayer.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B901CE1CCDBD42008473EF /* SKAvPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +61,7 @@
 		82B901A51CCDBB18008473EF /* SKAvPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				82B901CF1CCDBD63008473EF /* Framework */,
 				82B901A91CCDBB18008473EF /* AppDelegate.h */,
 				82B901AA1CCDBB18008473EF /* AppDelegate.m */,
 				82B901AC1CCDBB18008473EF /* ViewController.h */,
@@ -77,6 +81,14 @@
 				82B901A71CCDBB18008473EF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82B901CF1CCDBD63008473EF /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +314,7 @@
 				82B901BC1CCDBB18008473EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

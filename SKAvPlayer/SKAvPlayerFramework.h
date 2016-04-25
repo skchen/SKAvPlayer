@@ -1,6 +1,6 @@
 //
-//  SKAvPlayer.h
-//  SKAvPlayer
+//  SKAvPlayerFramework.h
+//  SKAvPlayerFramework
 //
 //  Created by Shin-Kai Chen on 2016/4/25.
 //  Copyright © 2016年 SK. All rights reserved.

@@ -1,0 +1,6 @@
+framework module SKAvPlayer {
+  umbrella header "SKAvPlayerFramework.h"
+
+  export *
+  module * { export * }
+}
