@@ -46,7 +46,7 @@
     [super viewWillAppear:animated];
     
     [self resetProgress];
-    [self updatePlayPauseButton];
+    [self resetButtons];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_player setDataSource:_list atIndex:_index];
@@ -77,7 +77,7 @@
             [_player start];
         }
         
-        [self updatePlayPauseButton];
+        [self updateButtons];
         [self updateProgressLater];
     });
 }
@@ -87,7 +87,7 @@
         [_player stop];
         
         [self resetProgress];
-        [self updatePlayPauseButton];
+        [self updateButtons];
     });
 }
 
@@ -97,13 +97,42 @@
     });
 }
 
-- (void)updatePlayPauseButton {
+- (void)updateTitle {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if([_player isPlaying]) {
-            [_playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-        } else {
-            [_playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
-        }
+        AVAsset *asset = [_list objectAtIndex:_player.index];
+        NSString *name = [((AVURLAsset *)asset).URL.absoluteString lastPathComponent];
+        [_nameLabel setText:name];
+    });
+}
+
+- (void)resetButtons {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
+        [_playPauseButton setEnabled:NO];
+        [_stopButton setEnabled:NO];
+        [_previousButton setEnabled:NO];
+        [_nextButton setEnabled:NO];
+    });
+}
+
+- (void)updateButtons {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BOOL hasPrevious = [_player hasPrevious];
+        BOOL hasNext = [_player hasNext];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([_player isPlaying]) {
+                [_playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+            } else {
+                [_playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
+            }
+            
+            [_playPauseButton setEnabled:YES];
+            [_stopButton setEnabled:YES];
+            
+            [_previousButton setEnabled:hasPrevious];
+            [_nextButton setEnabled:hasNext];
+        });
     });
 }
 
@@ -154,14 +183,8 @@
 #pragma mark - SKPlayerDelegate
 
 - (void)onPlayerStarted:(nonnull SKPlayer *)player atPosition:(int)position {
-    AVAsset *asset = [_list objectAtIndex:_player.index];
-    NSString *name = [((AVURLAsset *)asset).URL.absoluteString lastPathComponent];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [_nameLabel setText:name];
-    });
-    
-    [self updatePlayPauseButton];
+    [self updateTitle];
+    [self updateButtons];
     [self updateDuration];
     [self updateProgressLater];
 }
