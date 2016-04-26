@@ -161,11 +161,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53U-yo-ih9">
-                                <rect key="frame" x="140" y="384" width="52" height="30"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53U-yo-ih9">
+                                <rect key="frame" x="140" y="384" width="51" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="19O-7b-oyA"/>
-                                    <constraint firstAttribute="height" constant="30" id="Nm4-ix-v1Z"/>
+                                    <constraint firstAttribute="width" constant="49" id="19O-7b-oyA"/>
+                                    <constraint firstAttribute="height" constant="31" id="Nm4-ix-v1Z"/>
                                 </constraints>
                                 <connections>
                                     <action selector="onLoopSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="LQ5-dz-D4p"/>
@@ -181,11 +181,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-ki-9xR">
-                                <rect key="frame" x="140" y="434" width="52" height="30"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-ki-9xR">
+                                <rect key="frame" x="140" y="435" width="51" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Iww-Ru-jEj"/>
-                                    <constraint firstAttribute="height" constant="30" id="NNz-lC-aqp"/>
+                                    <constraint firstAttribute="width" constant="49" id="Iww-Ru-jEj"/>
+                                    <constraint firstAttribute="height" constant="31" id="NNz-lC-aqp"/>
                                 </constraints>
                                 <connections>
                                     <action selector="onRepeatSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dVF-qs-0gb"/>
@@ -201,11 +201,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSH-nR-Laj">
-                                <rect key="frame" x="140" y="484" width="52" height="30"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSH-nR-Laj">
+                                <rect key="frame" x="140" y="486" width="51" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="YoV-aD-QFg"/>
-                                    <constraint firstAttribute="height" constant="30" id="xhS-fP-yzS"/>
+                                    <constraint firstAttribute="width" constant="49" id="YoV-aD-QFg"/>
+                                    <constraint firstAttribute="height" constant="31" id="xhS-fP-yzS"/>
                                 </constraints>
                                 <connections>
                                     <action selector="onRandomSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gSo-N0-xYS"/>

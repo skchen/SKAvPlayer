@@ -15,7 +15,7 @@
 		82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901D71CCDBF6D008473EF /* AVFoundation.framework */; };
 		82B901E11CCF3E46008473EF /* SKAvListPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901DF1CCF3E46008473EF /* SKAvListPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B901E21CCF3E46008473EF /* SKAvListPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901E01CCF3E46008473EF /* SKAvListPlayer.m */; };
-		82B901E91CCF5027008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901E81CCF5027008473EF /* SKUtils.framework */; };
+		82B901FF1CCFBBFB008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901FE1CCFBBFB008473EF /* SKUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 		82B901D71CCDBF6D008473EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		82B901DF1CCF3E46008473EF /* SKAvListPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvListPlayer.h; sourceTree = "<group>"; };
 		82B901E01CCF3E46008473EF /* SKAvListPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvListPlayer.m; sourceTree = "<group>"; };
-		82B901E81CCF5027008473EF /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphonesimulator/SKUtils.framework"; sourceTree = "<group>"; };
+		82B901FE1CCFBBFB008473EF /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = "../../SKUtils/build/Debug-iphoneos/SKUtils.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B901E91CCF5027008473EF /* SKUtils.framework in Frameworks */,
+				82B901FF1CCFBBFB008473EF /* SKUtils.framework in Frameworks */,
 				82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,7 +116,7 @@
 		82B901D01CCDBD7A008473EF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				82B901E81CCF5027008473EF /* SKUtils.framework */,
+				82B901FE1CCFBBFB008473EF /* SKUtils.framework */,
 				82B901D71CCDBF6D008473EF /* AVFoundation.framework */,
 			);
 			path = Framework;
@@ -293,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -335,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

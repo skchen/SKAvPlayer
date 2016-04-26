@@ -12,10 +12,28 @@
 		82B901B11CCDBB18008473EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901AF1CCDBB18008473EF /* Main.storyboard */; };
 		82B901B31CCDBB18008473EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B21CCDBB18008473EF /* Assets.xcassets */; };
 		82B901B61CCDBB18008473EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B41CCDBB18008473EF /* LaunchScreen.storyboard */; };
-		82B901CE1CCDBD42008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */; };
 		82B901F11CCF50FC008473EF /* SKAvPlaybackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */; };
 		82B901F21CCF50FC008473EF /* SKAvPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */; };
+		82B901F71CCFBA9C008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */; };
+		82B901F81CCFBA9C008473EF /* SKAvPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		82B902011CCFBE20008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B902001CCFBE20008473EF /* SKUtils.framework */; };
+		82B902021CCFBE20008473EF /* SKUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82B902001CCFBE20008473EF /* SKUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		82B901F91CCFBA9D008473EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				82B902021CCFBE20008473EF /* SKUtils.framework in Embed Frameworks */,
+				82B901F81CCFBA9C008473EF /* SKAvPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		82B901A31CCDBB18008473EF /* SKAvPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAvPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,11 +44,12 @@
 		82B901B21CCDBB18008473EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B901B51CCDBB18008473EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B901B71CCDBB18008473EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKAvPlayer.framework; path = "../../../build/Debug-iphoneos/SKAvPlayer.framework"; sourceTree = "<group>"; };
 		82B901EC1CCF50FC008473EF /* SKAvPlaybackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlaybackTableViewController.h; sourceTree = "<group>"; };
 		82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlaybackTableViewController.m; sourceTree = "<group>"; };
 		82B901EF1CCF50FC008473EF /* SKAvPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayerViewController.h; sourceTree = "<group>"; };
 		82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayerViewController.m; sourceTree = "<group>"; };
+		82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SKAvPlayer.framework; path = "/Users/skchen/Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphoneos/SKAvPlayer.framework"; sourceTree = "<absolute>"; };
+		82B902001CCFBE20008473EF /* SKUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SKUtils.framework; path = "/Users/skchen/Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphoneos/SKUtils.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B901CE1CCDBD42008473EF /* SKAvPlayer.framework in Frameworks */,
+				82B902011CCFBE20008473EF /* SKUtils.framework in Frameworks */,
+				82B901F71CCFBA9C008473EF /* SKAvPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +108,8 @@
 		82B901CF1CCDBD63008473EF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */,
+				82B902001CCFBE20008473EF /* SKUtils.framework */,
+				82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -130,6 +151,7 @@
 				82B9019F1CCDBB18008473EF /* Sources */,
 				82B901A01CCDBB18008473EF /* Frameworks */,
 				82B901A11CCDBB18008473EF /* Resources */,
+				82B901F91CCFBA9D008473EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -295,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
