@@ -7,7 +7,8 @@
 //
 
 @import SKUtils;
+@import AVFoundation;
 
-@interface SKAvPlayer : SKPlayer <NSString *>
+@interface SKAvPlayer : SKPlayer <AVAsset *>
 
 @end

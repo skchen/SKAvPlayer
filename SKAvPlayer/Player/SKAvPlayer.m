@@ -8,15 +8,12 @@
 
 #import "SKAvPlayer.h"
 
-@import AVFoundation;
-
 static const NSString *ItemStatusContext;
 
 @interface SKAvPlayer ()
 
 @property(nonatomic, strong, nullable) AVPlayer *avPlayer;
 @property(nonatomic, strong, nullable) AVPlayerItem *item;
-@property(nonatomic, strong, nullable) AVURLAsset *asset;
 @property(nonatomic, copy) dispatch_semaphore_t semaphore;
 @property(nonatomic, strong, nullable) NSError *error;
 
@@ -26,42 +23,37 @@ static const NSString *ItemStatusContext;
 
 - (void)dealloc {
     [_avPlayer pause];
-    [_item removeObserver:self forKeyPath:@"status"];
+    
+    if(_item) {
+        [_item removeObserver:self forKeyPath:@"status"];
+    }
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (NSError *)_setDataSource:(NSString *)source {
-    NSURL *url = nil;
-    
-    if([source hasPrefix:@"/"]) {
-        url = [NSURL fileURLWithPath:source];
-    } else if([source hasPrefix:@"http://"] || [source hasPrefix:@"https://"]) {
-        url = [NSURL URLWithString:source];
-    }
-    
-    if(url) {
-        _asset = [AVURLAsset URLAssetWithURL:url options:nil];
-        return nil;
-    } else {
-        return [NSError errorWithDomain:@"Invalid url" code:0 userInfo:nil];
-    }
+- (NSError *)_setDataSource:(AVAsset *)source {
+    return nil;
 }
 
 - (NSError *)_prepare {
+    if(_item) {
+        [_item removeObserver:self forKeyPath:@"status"];
+    }
+    
     _semaphore = dispatch_semaphore_create(0);
     _error = nil;
     
     NSString *tracksKey = @"tracks";
     
-    [_asset loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
+    [self.source loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
      ^{
          dispatch_async(dispatch_get_main_queue(), ^{
              NSError *error;
-             AVKeyValueStatus status = [_asset statusOfValueForKey:tracksKey error:&error];
+             AVKeyValueStatus status = [self.source statusOfValueForKey:tracksKey error:&error];
              
              if (status == AVKeyValueStatusLoaded) {
-                 if([_asset isPlayable]) {
-                     _item = [AVPlayerItem playerItemWithAsset:_asset];
+                 if([self.source isPlayable]) {
+                     _item = [AVPlayerItem playerItemWithAsset:self.source];
                      [_item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
                      
                      [[NSNotificationCenter defaultCenter] addObserver:self
@@ -100,6 +92,7 @@ static const NSString *ItemStatusContext;
 - (NSError *)_stop {
     [_avPlayer seekToTime:CMTimeMake(0, 1)];
     [_avPlayer pause];
+    
     return nil;
 }
 
@@ -108,7 +101,7 @@ static const NSString *ItemStatusContext;
 }
 
 - (int)getDuration {
-    return (int)round(CMTimeGetSeconds(_asset.duration)*1000);
+    return (int)round(CMTimeGetSeconds(self.source.duration)*1000);
 }
 
 - (NSError *)_seekTo:(int)msec {

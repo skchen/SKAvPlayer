@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		82B901A81CCDBB18008473EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901A71CCDBB18008473EF /* main.m */; };
 		82B901AB1CCDBB18008473EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901AA1CCDBB18008473EF /* AppDelegate.m */; };
-		82B901AE1CCDBB18008473EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901AD1CCDBB18008473EF /* ViewController.m */; };
 		82B901B11CCDBB18008473EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901AF1CCDBB18008473EF /* Main.storyboard */; };
 		82B901B31CCDBB18008473EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B21CCDBB18008473EF /* Assets.xcassets */; };
 		82B901B61CCDBB18008473EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B41CCDBB18008473EF /* LaunchScreen.storyboard */; };
 		82B901CE1CCDBD42008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */; };
+		82B901F11CCF50FC008473EF /* SKAvPlaybackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */; };
+		82B901F21CCF50FC008473EF /* SKAvPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +22,15 @@
 		82B901A71CCDBB18008473EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82B901A91CCDBB18008473EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82B901AA1CCDBB18008473EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		82B901AC1CCDBB18008473EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		82B901AD1CCDBB18008473EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		82B901B01CCDBB18008473EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82B901B21CCDBB18008473EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B901B51CCDBB18008473EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82B901B71CCDBB18008473EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKAvPlayer.framework; path = "../../../build/Debug-iphoneos/SKAvPlayer.framework"; sourceTree = "<group>"; };
+		82B901EC1CCF50FC008473EF /* SKAvPlaybackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlaybackTableViewController.h; sourceTree = "<group>"; };
+		82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlaybackTableViewController.m; sourceTree = "<group>"; };
+		82B901EF1CCF50FC008473EF /* SKAvPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayerViewController.h; sourceTree = "<group>"; };
+		82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +64,10 @@
 		82B901A51CCDBB18008473EF /* SKAvPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				82B901EA1CCF50FC008473EF /* UI */,
 				82B901CF1CCDBD63008473EF /* Framework */,
 				82B901A91CCDBB18008473EF /* AppDelegate.h */,
 				82B901AA1CCDBB18008473EF /* AppDelegate.m */,
-				82B901AC1CCDBB18008473EF /* ViewController.h */,
-				82B901AD1CCDBB18008473EF /* ViewController.m */,
 				82B901AF1CCDBB18008473EF /* Main.storyboard */,
 				82B901B21CCDBB18008473EF /* Assets.xcassets */,
 				82B901B41CCDBB18008473EF /* LaunchScreen.storyboard */,
@@ -89,6 +91,33 @@
 				82B901CD1CCDBD42008473EF /* SKAvPlayer.framework */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		82B901EA1CCF50FC008473EF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				82B901EB1CCF50FC008473EF /* Browser */,
+				82B901EE1CCF50FC008473EF /* Player */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		82B901EB1CCF50FC008473EF /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				82B901EC1CCF50FC008473EF /* SKAvPlaybackTableViewController.h */,
+				82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		82B901EE1CCF50FC008473EF /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				82B901EF1CCF50FC008473EF /* SKAvPlayerViewController.h */,
+				82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,8 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B901AE1CCDBB18008473EF /* ViewController.m in Sources */,
 				82B901AB1CCDBB18008473EF /* AppDelegate.m in Sources */,
+				82B901F21CCF50FC008473EF /* SKAvPlayerViewController.m in Sources */,
+				82B901F11CCF50FC008473EF /* SKAvPlaybackTableViewController.m in Sources */,
 				82B901A81CCDBB18008473EF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

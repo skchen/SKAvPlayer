@@ -16,7 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    SKAvPlayer *player = [[SKAvPlayer alloc] init];
+    _player = [[SKAvListPlayer alloc] initWithPlayer:player];
+    
     return YES;
 }
 

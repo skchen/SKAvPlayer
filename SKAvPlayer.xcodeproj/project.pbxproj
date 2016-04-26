@@ -12,8 +12,10 @@
 		82B901CC1CCDBCFB008473EF /* SKAvPlayerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901CB1CCDBCFB008473EF /* SKAvPlayerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B901D31CCDBE77008473EF /* SKAvPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901D11CCDBE77008473EF /* SKAvPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B901D41CCDBE77008473EF /* SKAvPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901D21CCDBE77008473EF /* SKAvPlayer.m */; };
-		82B901D61CCDBE9F008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901D51CCDBE9F008473EF /* SKUtils.framework */; };
 		82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901D71CCDBF6D008473EF /* AVFoundation.framework */; };
+		82B901E11CCF3E46008473EF /* SKAvListPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901DF1CCF3E46008473EF /* SKAvListPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901E21CCF3E46008473EF /* SKAvListPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901E01CCF3E46008473EF /* SKAvListPlayer.m */; };
+		82B901E91CCF5027008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901E81CCF5027008473EF /* SKUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +37,10 @@
 		82B901CB1CCDBCFB008473EF /* SKAvPlayerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayerFramework.h; sourceTree = "<group>"; };
 		82B901D11CCDBE77008473EF /* SKAvPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayer.h; sourceTree = "<group>"; };
 		82B901D21CCDBE77008473EF /* SKAvPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayer.m; sourceTree = "<group>"; };
-		82B901D51CCDBE9F008473EF /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = "../../SKUtils/build/Debug-iphoneos/SKUtils.framework"; sourceTree = "<group>"; };
 		82B901D71CCDBF6D008473EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		82B901DF1CCF3E46008473EF /* SKAvListPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvListPlayer.h; sourceTree = "<group>"; };
+		82B901E01CCF3E46008473EF /* SKAvListPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvListPlayer.m; sourceTree = "<group>"; };
+		82B901E81CCF5027008473EF /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphonesimulator/SKUtils.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B901E91CCF5027008473EF /* SKUtils.framework in Frameworks */,
 				82B901D81CCDBF6D008473EF /* AVFoundation.framework in Frameworks */,
-				82B901D61CCDBE9F008473EF /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +107,8 @@
 			children = (
 				82B901D11CCDBE77008473EF /* SKAvPlayer.h */,
 				82B901D21CCDBE77008473EF /* SKAvPlayer.m */,
+				82B901DF1CCF3E46008473EF /* SKAvListPlayer.h */,
+				82B901E01CCF3E46008473EF /* SKAvListPlayer.m */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -110,7 +116,7 @@
 		82B901D01CCDBD7A008473EF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				82B901D51CCDBE9F008473EF /* SKUtils.framework */,
+				82B901E81CCF5027008473EF /* SKUtils.framework */,
 				82B901D71CCDBF6D008473EF /* AVFoundation.framework */,
 			);
 			path = Framework;
@@ -123,6 +129,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B901E11CCF3E46008473EF /* SKAvListPlayer.h in Headers */,
 				82B901CC1CCDBCFB008473EF /* SKAvPlayerFramework.h in Headers */,
 				82B901D31CCDBE77008473EF /* SKAvPlayer.h in Headers */,
 			);
@@ -225,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B901D41CCDBE77008473EF /* SKAvPlayer.m in Sources */,
+				82B901E21CCF3E46008473EF /* SKAvListPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

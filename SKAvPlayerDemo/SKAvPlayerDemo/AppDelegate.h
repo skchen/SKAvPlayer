@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@import SKAvPlayer;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic, nonnull) UIWindow *window;
+@property (nonatomic, strong, readonly, nonnull) SKAvListPlayer *player;
 
 @end
 
