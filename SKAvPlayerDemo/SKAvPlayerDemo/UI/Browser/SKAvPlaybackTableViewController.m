@@ -11,9 +11,10 @@
 #import "SKAvPlayerViewController.h"
 #import "AppDelegate.h"
 
-static NSString *testUrl1 = @"http://192.168.2.100:5000/fbsharing/uRIN5LHo";
-static NSString *testUrl2 = @"http://192.168.2.100:5000/fbsharing/Ar6qzETt";
-static NSString *testUrl3 = @"http://192.168.2.100:5000/fbsharing/fGd1VdeQ";
+static NSString *testUrl1 = @"http://192.168.2.100:5000/fbsharing/yeo83cAl";
+static NSString *testUrl2 = @"http://192.168.2.100:5000/fbsharing/aWGTK2Zo";
+static NSString *testUrl3 = @"http://192.168.2.100:5000/fbsharing/lqX5DllN";
+static NSString *testUrl4 = @"http://192.168.2.100:5000/fbsharing/lHHL48fb";
 
 @interface SKAvPlaybackTableViewController ()
 
@@ -64,7 +65,8 @@ static NSString *testUrl3 = @"http://192.168.2.100:5000/fbsharing/fGd1VdeQ";
         AVAsset *asset1 = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:testUrl1] options:nil];
         AVAsset *asset2 = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:testUrl2] options:nil];
         AVAsset *asset3 = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:testUrl3] options:nil];
-        _resources = @[asset1, asset2, asset3];
+        AVAsset *asset4 = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:testUrl4] options:nil];
+        _resources = @[asset1, asset2, asset3, asset4];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];

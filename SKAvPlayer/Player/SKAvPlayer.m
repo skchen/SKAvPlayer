@@ -45,33 +45,31 @@ static const NSString *ItemStatusContext;
     
     NSString *tracksKey = @"tracks";
     
-    [self.source loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
+    [_source loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
      ^{
-         dispatch_async(dispatch_get_main_queue(), ^{
-             NSError *error;
-             AVKeyValueStatus status = [self.source statusOfValueForKey:tracksKey error:&error];
-             
-             if (status == AVKeyValueStatusLoaded) {
-                 if([self.source isPlayable]) {
-                     _item = [AVPlayerItem playerItemWithAsset:self.source];
-                     [_item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
-                     
-                     [[NSNotificationCenter defaultCenter] addObserver:self
-                                                              selector:@selector(playerItemDidReachEnd:)
-                                                                  name:AVPlayerItemDidPlayToEndTimeNotification
-                                                                object:_item];
-                     
-                     _avPlayer = [AVPlayer playerWithPlayerItem:_item];
-                 } else {
-                     _error = [NSError errorWithDomain:@"Item not playable" code:0 userInfo:nil];
-                     dispatch_semaphore_signal(_semaphore);
-                 }
+         NSError *error;
+         AVKeyValueStatus status = [_source statusOfValueForKey:tracksKey error:&error];
+         
+         if (status == AVKeyValueStatusLoaded) {
+             if([_source isPlayable]) {
+                 _item = [AVPlayerItem playerItemWithAsset:_source];
+                 [_item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
+                 
+                 [[NSNotificationCenter defaultCenter] addObserver:self
+                                                          selector:@selector(playerItemDidReachEnd:)
+                                                              name:AVPlayerItemDidPlayToEndTimeNotification
+                                                            object:_item];
+                 
+                 _avPlayer = [AVPlayer playerWithPlayerItem:_item];
              } else {
-                 NSLog(@"The asset's tracks were not loaded:\n%@", [error localizedDescription]);
-                 _error = [NSError errorWithDomain:@"Unable to load tracks" code:0 userInfo:nil];
+                 _error = [NSError errorWithDomain:@"Item not playable" code:0 userInfo:nil];
                  dispatch_semaphore_signal(_semaphore);
              }
-         });
+         } else {
+             NSLog(@"The asset's tracks were not loaded:\n%@", [error localizedDescription]);
+             _error = [NSError errorWithDomain:@"Unable to load tracks" code:0 userInfo:nil];
+             dispatch_semaphore_signal(_semaphore);
+         }
      }];
     
     dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
