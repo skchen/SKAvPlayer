@@ -28,6 +28,15 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+@property (weak, nonatomic) IBOutlet UISwitch *loopSwitch;
+- (IBAction)onLoopSwitchValueChanged:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *repeatSwitch;
+- (IBAction)onRepeatSwitchValueChanged:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *randomSwitch;
+- (IBAction)onRandomSwitchValueChanged:(id)sender;
+
 @property (nonatomic, strong, nonnull) SKAvListPlayer *player;
 
 @end
@@ -136,6 +145,14 @@
     });
 }
 
+- (void)updateSwitches {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_loopSwitch setOn:_player.looping];
+        [_repeatSwitch setOn:_player.repeat];
+        [_randomSwitch setOn:_player.random];
+    });
+}
+
 - (void)resetProgress {
     dispatch_async(dispatch_get_main_queue(), ^{
         [_progressSlider setValue:0];
@@ -187,6 +204,31 @@
     [self updateButtons];
     [self updateDuration];
     [self updateProgressLater];
+    [self updateSwitches];
+}
+
+- (IBAction)onLoopSwitchValueChanged:(id)sender {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _player.looping = _loopSwitch.isOn;
+    });
+    [self updateButtons];
+    [self updateSwitches];
+}
+
+- (IBAction)onRepeatSwitchValueChanged:(id)sender {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _player.repeat = _repeatSwitch.isOn;
+    });
+    [self updateButtons];
+    [self updateSwitches];
+}
+
+- (IBAction)onRandomSwitchValueChanged:(id)sender {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _player.random = _randomSwitch.isOn;
+    });
+    [self updateButtons];
+    [self updateSwitches];
 }
 
 @end
