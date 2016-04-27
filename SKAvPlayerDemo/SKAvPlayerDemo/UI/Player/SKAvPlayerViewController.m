@@ -37,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *randomSwitch;
 - (IBAction)onRandomSwitchValueChanged:(id)sender;
 
+@property (strong, nonatomic) UIActivityIndicatorView *loadingView;
+
 @property (nonatomic, strong, nonnull) SKAvListPlayer *player;
 
 @end
@@ -45,6 +47,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _loadingView = [[UIActivityIndicatorView alloc] initWithFrame:self.view.bounds];
+    _loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    _loadingView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    [_loadingView setHidden:YES];
+    [self.view addSubview:_loadingView];
     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     _player = app.player;
@@ -56,6 +64,9 @@
     
     [self resetProgress];
     [self resetButtons];
+    
+    [_loadingView setHidden:NO];
+    [_loadingView startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_player setDataSource:_list atIndex:_index];
@@ -186,25 +197,21 @@
 }
 
 - (IBAction)onPreviousButtonPressed:(id)sender {
+    [_loadingView setHidden:NO];
+    [_loadingView startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_player previous];
     });
 }
 
 - (IBAction)onNextButtonPressed:(id)sender {
+    [_loadingView setHidden:NO];
+    [_loadingView startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_player next];
     });
-}
-
-#pragma mark - SKPlayerDelegate
-
-- (void)onPlayerStarted:(nonnull SKPlayer *)player atPosition:(int)position {
-    [self updateTitle];
-    [self updateButtons];
-    [self updateDuration];
-    [self updateProgressLater];
-    [self updateSwitches];
 }
 
 - (IBAction)onLoopSwitchValueChanged:(id)sender {
@@ -229,6 +236,23 @@
     });
     [self updateButtons];
     [self updateSwitches];
+}
+
+#pragma mark - SKPlayerDelegate
+
+- (void)onPlayerStarted:(nonnull SKPlayer *)player atPosition:(int)position {
+    [self updateTitle];
+    [self updateButtons];
+    [self updateDuration];
+    [self updateProgressLater];
+    [self updateSwitches];
+}
+
+- (void)onPlayerPrepared:(nonnull SKPlayer *)player {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_loadingView stopAnimating];
+        [_loadingView setHidden:YES];
+    });
 }
 
 @end

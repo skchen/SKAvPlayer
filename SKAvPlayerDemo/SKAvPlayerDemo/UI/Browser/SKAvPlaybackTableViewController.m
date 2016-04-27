@@ -11,10 +11,10 @@
 #import "SKAvPlayerViewController.h"
 #import "AppDelegate.h"
 
-static NSString *testUrl1 = @"http://192.168.2.100:5000/fbsharing/yeo83cAl";
-static NSString *testUrl2 = @"http://192.168.2.100:5000/fbsharing/aWGTK2Zo";
-static NSString *testUrl3 = @"http://192.168.2.100:5000/fbsharing/lqX5DllN";
-static NSString *testUrl4 = @"http://192.168.2.100:5000/fbsharing/lHHL48fb";
+static NSString *testUrl1 = @"http://skchen.synology.me:5000/fbsharing/yeo83cAl";
+static NSString *testUrl2 = @"http://skchen.synology.me:5000/fbsharing/aWGTK2Zo";
+static NSString *testUrl3 = @"http://skchen.synology.me:5000/fbsharing/lqX5DllN";
+static NSString *testUrl4 = @"http://skchen.synology.me:5000/fbsharing/lHHL48fb";
 
 @interface SKAvPlaybackTableViewController ()
 
