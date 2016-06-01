@@ -6,9 +6,9 @@
 //  Copyright © 2016年 SK. All rights reserved.
 //
 
-@import SKUtils;
+#import <SKUtils/SKUtils.h>
 @import AVFoundation;
 
-@interface SKAvPlayer : SKPlayer <AVAsset *>
+@interface SKAvPlayer : SKPlayer
 
 @end
