@@ -68,10 +68,10 @@ static const NSString *ItemStatusContext;
                 
                 _avPlayer = [AVPlayer playerWithPlayerItem:_item];
             } else {
-                callback([NSError errorWithDomain:@"Item not playable" code:0 userInfo:nil]);
+                [self notifyErrorMessage:@"Item not playable" callback:callback];
             }
         } else {
-            callback([NSError errorWithDomain:@"Unable to load tracks" code:0 userInfo:nil]);
+            [self notifyErrorMessage:@"Unable to load tracks" callback:callback];
         }
     }];
 }
