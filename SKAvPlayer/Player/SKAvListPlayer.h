@@ -9,6 +9,6 @@
 @import SKUtils;
 @import AVFoundation;
 
-@interface SKAvListPlayer : SKListPlayer<AVAsset *>
+@interface SKAvListPlayer : SKListPlayer
 
 @end
