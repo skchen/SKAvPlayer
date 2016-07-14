@@ -12,4 +12,10 @@
 
 @implementation SKAvListPlayer
 
+- (instancetype)init {
+    SKPlayer *innerPlayer = [[SKAvPlayer alloc] init];
+    self = [super initWithPlayer:innerPlayer];
+    return self;
+}
+
 @end

@@ -1,0 +1,3 @@
+[submodule "Libraries/SKUtils"]
+	path = Libraries/SKUtils
+	url = https://github.com/skchen/SKUtils.git

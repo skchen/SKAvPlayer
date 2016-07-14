@@ -8,6 +8,6 @@
       location = "group:../SKAvPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../SKUtils/SKUtils.xcodeproj">
+      location = "group:../Libraries/SKUtils/SKUtils.xcodeproj">
    </FileRef>
 </Workspace>

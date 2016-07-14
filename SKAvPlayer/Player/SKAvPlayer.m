@@ -8,14 +8,15 @@
 
 #import "SKAvPlayer.h"
 
-static const NSString *ItemStatusContext;
+static const NSString * ItemStatusContext;
+
+static NSString * const kKeyTracks = @"tracks";
+static NSString * const kKeyStatus = @"status";
 
 @interface SKAvPlayer ()
 
-@property(nonatomic, strong, nullable) AVAsset *asset;
 @property(nonatomic, strong, nullable) AVPlayer *avPlayer;
 @property(nonatomic, strong, nullable) AVPlayerItem *item;
-@property(nonatomic, copy, nullable) SKErrorCallback prepareCallback;
 
 @end
 
@@ -31,52 +32,46 @@ static const NSString *ItemStatusContext;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)_setDataSource:(nonnull id)source {
-    if([source isKindOfClass:[AVAsset class]]) {
-        _asset = source;
-    } else if([source isKindOfClass:[NSURL class]]) {
-        _asset = [AVAsset assetWithURL:source];
-    } else if([source isKindOfClass:[NSString class]]) {
-        [self _setDataSource:[NSURL URLWithString:source]];
-    } else {
-        NSLog(@"Non-supported source: %@", source);
-    }
-}
+#pragma mark - Abstract
 
-- (void)_prepare:(SKErrorCallback)callback {
+- (void)_start:(SKErrorCallback)callback {
     if(_item) {
         [_item removeObserver:self forKeyPath:@"status"];
     }
     
-    NSString *tracksKey = @"tracks";
+    AVAsset *asset = (AVAsset *)_source;
     
-    [_asset loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:^{
-        NSError *error;
-        AVKeyValueStatus status = [_asset statusOfValueForKey:tracksKey error:&error];
-        
-        if (status == AVKeyValueStatusLoaded) {
-            if([_asset isPlayable]) {
-                _prepareCallback = callback;
-                
-                _item = [AVPlayerItem playerItemWithAsset:_asset];
-                [_item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
-                
-                [[NSNotificationCenter defaultCenter] addObserver:self
-                                                         selector:@selector(playerItemDidReachEnd:)
-                                                             name:AVPlayerItemDidPlayToEndTimeNotification
-                                                           object:_item];
-                
-                _avPlayer = [AVPlayer playerWithPlayerItem:_item];
+    if(asset) {
+        [asset loadValuesAsynchronouslyForKeys:@[kKeyTracks] completionHandler:^{
+            NSError *error;
+            AVKeyValueStatus status = [asset statusOfValueForKey:kKeyTracks error:&error];
+            
+            if (status == AVKeyValueStatusLoaded) {
+                if([asset isPlayable]) {
+                    _item = [AVPlayerItem playerItemWithAsset:asset];
+                    [_item addObserver:self forKeyPath:kKeyStatus options:NSKeyValueObservingOptionInitial context:&ItemStatusContext];
+                    
+                    [[NSNotificationCenter defaultCenter] addObserver:self
+                                                             selector:@selector(playerItemDidReachEnd:)
+                                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                                               object:_item];
+                    
+                    _avPlayer = [AVPlayer playerWithPlayerItem:_item];
+                    
+                    [self _resume:callback];
+                } else {
+                    [self notifyErrorMessage:@"Item not playable" callback:callback];
+                }
             } else {
-                [self notifyErrorMessage:@"Item not playable" callback:callback];
+                [self notifyErrorMessage:@"Unable to load tracks" callback:callback];
             }
-        } else {
-            [self notifyErrorMessage:@"Unable to load tracks" callback:callback];
-        }
-    }];
+        }];
+    } else {
+        [self notifyErrorMessage:@"Source not found" callback:callback];
+    }
 }
 
-- (void)_start:(SKErrorCallback)callback {
+- (void)_resume:(SKErrorCallback)callback {
     [_avPlayer play];
     callback(nil);
 }
@@ -92,12 +87,22 @@ static const NSString *ItemStatusContext;
     callback(nil);
 }
 
-- (void)_getCurrentPosition:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    success(CMTimeGetSeconds(_avPlayer.currentTime));
-}
-
-- (void)_getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    success(CMTimeGetSeconds(_asset.duration));
+- (void)_setSource:(nonnull id)source callback:(nullable SKErrorCallback)callback {
+    AVAsset *asset = nil;
+    
+    if([source isKindOfClass:[AVAsset class]]) {
+        asset = source;
+    } else if([source isKindOfClass:[NSURL class]]) {
+        asset = [AVAsset assetWithURL:source];
+    } else if([source isKindOfClass:[NSString class]]) {
+        asset = [AVAsset assetWithURL:[NSURL URLWithString:source]];
+    } else {
+        [self notifyErrorMessage:@"Source not supported" callback:callback];
+    }
+    
+    if(asset) {
+        [self changeSource:asset callback:callback];
+    }
 }
 
 - (void)_seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
@@ -107,22 +112,37 @@ static const NSString *ItemStatusContext;
     success(time);
 }
 
+- (void)getProgress:(nonnull SKTimeCallback)success failure:(nullable SKErrorCallback)failure {
+    success(CMTimeGetSeconds(_avPlayer.currentTime));
+}
+
+- (void)getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
+    AVAsset *asset = (AVAsset *)_source;
+    
+    if(asset) {
+        success(CMTimeGetSeconds(asset.duration));
+    } else {
+        [self notifyErrorMessage:@"Source not found" callback:failure];
+    }
+}
+
+#pragma mark - Notification
+
+- (void)playerItemDidReachEnd:(NSNotification *)notification {
+    [self playbackDidComplete:_source];
+}
+
+#pragma mark - KVO
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
     if(context == &ItemStatusContext) {
         if(_item.status==AVPlayerItemStatusReadyToPlay) {
-            if(_prepareCallback) {
-                _prepareCallback(nil);
-                _prepareCallback = nil;
-            }
+            // Prepared
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
-}
-
-- (void)playerItemDidReachEnd:(NSNotification *)notification {
-    [self notifyCompletion:nil];
 }
 
 @end

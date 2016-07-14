@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jj8-yw-t6m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jj8-yw-t6m">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -18,7 +17,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQn-o4-ttG" id="Mhi-sV-ldQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -211,6 +210,10 @@
                                     <action selector="onRandomSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gSo-N0-xYS"/>
                                 </connections>
                             </switch>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2tR-UL-5UI" userLabel="Loading View">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.50344827589999996" alpha="0.49645390070000001" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -236,11 +239,14 @@
                             <constraint firstItem="qEQ-ki-9xR" firstAttribute="leading" secondItem="ZCq-kI-jf1" secondAttribute="trailing" constant="20" id="ZFR-VK-AXZ"/>
                             <constraint firstItem="ZCq-kI-jf1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="dWZ-6M-KgT"/>
                             <constraint firstItem="8ys-Wv-lOk" firstAttribute="top" secondItem="HMd-jW-gMo" secondAttribute="bottom" constant="20" id="dan-6J-xeV"/>
+                            <constraint firstItem="2tR-UL-5UI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dxJ-64-RBf"/>
                             <constraint firstAttribute="trailing" secondItem="HMd-jW-gMo" secondAttribute="trailing" constant="20" id="gBZ-Nz-bLo"/>
                             <constraint firstItem="LOp-ho-Kes" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="kUe-jx-vUx"/>
                             <constraint firstItem="53U-yo-ih9" firstAttribute="top" secondItem="4iN-zd-wgA" secondAttribute="bottom" constant="20" id="lUl-b0-BcA"/>
                             <constraint firstItem="UQZ-sZ-4v5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="lj7-m6-2If"/>
                             <constraint firstItem="LOp-ho-Kes" firstAttribute="top" secondItem="qvQ-tN-Qsi" secondAttribute="bottom" constant="20" id="nc0-1V-dDE"/>
+                            <constraint firstItem="2tR-UL-5UI" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="nks-aL-GyK"/>
+                            <constraint firstItem="2tR-UL-5UI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o8v-AW-Umr"/>
                             <constraint firstAttribute="trailing" secondItem="LOp-ho-Kes" secondAttribute="trailing" constant="20" id="oRX-0f-Lg2"/>
                             <constraint firstAttribute="trailing" secondItem="4iN-zd-wgA" secondAttribute="trailing" constant="20" id="obI-KG-Gyy"/>
                             <constraint firstItem="qEQ-ki-9xR" firstAttribute="top" secondItem="53U-yo-ih9" secondAttribute="bottom" constant="20" id="pE8-QY-zsM"/>
@@ -248,6 +254,7 @@
                             <constraint firstItem="fSH-nR-Laj" firstAttribute="leading" secondItem="UQZ-sZ-4v5" secondAttribute="trailing" constant="20" id="rHG-Wd-lfn"/>
                             <constraint firstItem="53U-yo-ih9" firstAttribute="leading" secondItem="hpt-3f-9OX" secondAttribute="trailing" constant="20" id="tGh-vd-ZcK"/>
                             <constraint firstItem="8ys-Wv-lOk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="txn-Nc-rpq"/>
+                            <constraint firstItem="2tR-UL-5UI" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="wBC-s3-jgw"/>
                             <constraint firstItem="QBY-jr-fFx" firstAttribute="top" secondItem="LOp-ho-Kes" secondAttribute="bottom" constant="20" id="xhb-yu-NOU"/>
                             <constraint firstItem="hpt-3f-9OX" firstAttribute="top" secondItem="4iN-zd-wgA" secondAttribute="bottom" constant="20" id="yw6-xq-LqF"/>
                             <constraint firstItem="fSH-nR-Laj" firstAttribute="leading" secondItem="UQZ-sZ-4v5" secondAttribute="trailing" constant="20" id="z4y-ae-d2s"/>
@@ -255,6 +262,7 @@
                     </view>
                     <connections>
                         <outlet property="durationLabel" destination="vDf-6n-yo7" id="AUE-K2-peN"/>
+                        <outlet property="loadingView" destination="2tR-UL-5UI" id="Tsy-Ug-nZS"/>
                         <outlet property="loopSwitch" destination="53U-yo-ih9" id="XKv-dO-hpD"/>
                         <outlet property="nameLabel" destination="4iN-zd-wgA" id="Y0h-jh-Bk7"/>
                         <outlet property="nextButton" destination="8ys-Wv-lOk" id="QSG-rm-Pu2"/>

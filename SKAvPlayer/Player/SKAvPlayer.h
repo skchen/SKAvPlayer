@@ -9,6 +9,6 @@
 #import <SKUtils/SKUtils.h>
 @import AVFoundation;
 
-@interface SKAvPlayer : SKPlayer
+@interface SKAvPlayer : SKSimplePlayer
 
 @end

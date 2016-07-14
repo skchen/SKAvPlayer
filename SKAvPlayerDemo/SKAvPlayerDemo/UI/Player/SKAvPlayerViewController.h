@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@import SKAvPlayer;
+#import <SKAvPlayer/SKAvPlayer.h>
 @import AVFoundation;
 
-@interface SKAvPlayerViewController : UIViewController
+@interface SKAvPlayerViewController : SKListPlayerViewController
 
 @property(nonatomic, strong, nullable) NSArray<AVAsset *> *list;
 @property(nonatomic, assign) NSUInteger index;

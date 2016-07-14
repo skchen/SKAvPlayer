@@ -14,10 +14,6 @@
 		82B901B61CCDBB18008473EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B901B41CCDBB18008473EF /* LaunchScreen.storyboard */; };
 		82B901F11CCF50FC008473EF /* SKAvPlaybackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */; };
 		82B901F21CCF50FC008473EF /* SKAvPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */; };
-		82B901F71CCFBA9C008473EF /* SKAvPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */; };
-		82B901F81CCFBA9C008473EF /* SKAvPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		82B902011CCFBE20008473EF /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B902001CCFBE20008473EF /* SKUtils.framework */; };
-		82B902021CCFBE20008473EF /* SKUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82B902001CCFBE20008473EF /* SKUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				82B902021CCFBE20008473EF /* SKUtils.framework in Embed Frameworks */,
-				82B901F81CCFBA9C008473EF /* SKAvPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,8 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B902011CCFBE20008473EF /* SKUtils.framework in Frameworks */,
-				82B901F71CCFBA9C008473EF /* SKAvPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,10 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    SKAvPlayer *player = [[SKAvPlayer alloc] init];
-    _player = [[SKAvListPlayer alloc] initWithPlayer:player];
-    
+    _player = [[SKAvListPlayer alloc] init];
     return YES;
 }
 
