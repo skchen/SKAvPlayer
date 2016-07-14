@@ -16,19 +16,6 @@
 		82B901F21CCF50FC008473EF /* SKAvPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		82B901F91CCFBA9D008473EF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		82B901A31CCDBB18008473EF /* SKAvPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAvPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B901A71CCDBB18008473EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,8 +29,6 @@
 		82B901ED1CCF50FC008473EF /* SKAvPlaybackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlaybackTableViewController.m; sourceTree = "<group>"; };
 		82B901EF1CCF50FC008473EF /* SKAvPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAvPlayerViewController.h; sourceTree = "<group>"; };
 		82B901F01CCF50FC008473EF /* SKAvPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAvPlayerViewController.m; sourceTree = "<group>"; };
-		82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SKAvPlayer.framework; path = "/Users/skchen/Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphoneos/SKAvPlayer.framework"; sourceTree = "<absolute>"; };
-		82B902001CCFBE20008473EF /* SKUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SKUtils.framework; path = "/Users/skchen/Library/Developer/Xcode/DerivedData/SKAvPlayerDemo-arwssdzpalngpofclwrnvuxeepah/Build/Products/Debug-iphoneos/SKUtils.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +85,6 @@
 		82B901CF1CCDBD63008473EF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				82B902001CCFBE20008473EF /* SKUtils.framework */,
-				82B901F61CCFBA9C008473EF /* SKAvPlayer.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -143,7 +126,6 @@
 				82B9019F1CCDBB18008473EF /* Sources */,
 				82B901A01CCDBB18008473EF /* Frameworks */,
 				82B901A11CCDBB18008473EF /* Resources */,
-				82B901F91CCFBA9D008473EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

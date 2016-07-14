@@ -112,11 +112,11 @@ static NSString * const kKeyStatus = @"status";
     success(time);
 }
 
-- (void)getProgress:(nonnull SKTimeCallback)success failure:(nullable SKErrorCallback)failure {
+- (void)_getProgress:(nonnull SKTimeCallback)success failure:(nullable SKErrorCallback)failure {
     success(CMTimeGetSeconds(_avPlayer.currentTime));
 }
 
-- (void)getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
+- (void)_getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
     AVAsset *asset = (AVAsset *)_source;
     
     if(asset) {
