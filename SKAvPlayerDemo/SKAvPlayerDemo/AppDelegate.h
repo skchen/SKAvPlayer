@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@import SKAvPlayer;
+#import <SKAvPlayer/SKAvListPlayer.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
