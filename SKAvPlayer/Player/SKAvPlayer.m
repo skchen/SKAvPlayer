@@ -73,18 +73,18 @@ static NSString * const kKeyStatus = @"status";
 
 - (void)_resume:(SKErrorCallback)callback {
     [_avPlayer play];
-    callback(nil);
+    [self changeState:SKPlayerPlaying callback:callback];
 }
 
 - (void)_pause:(SKErrorCallback)callback {
     [_avPlayer pause];
-    callback(nil);
+    [self changeState:SKPlayerPaused callback:callback];
 }
 
 - (void)_stop:(SKErrorCallback)callback {
     [_avPlayer seekToTime:CMTimeMake(0, 1)];
     [_avPlayer pause];
-    callback(nil);
+    [self changeState:SKPlayerStopped callback:callback];
 }
 
 - (void)_setSource:(nonnull id)source callback:(nullable SKErrorCallback)callback {
